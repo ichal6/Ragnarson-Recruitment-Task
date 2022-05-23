@@ -68,6 +68,18 @@ module Ragnarson
       # - 3rd place name
       # - average, median, highest value and lowest value of each of the following attributes: skill, pleasure
       # Each stat should be displayed in the separate line in the format: {STAT NAME} => {STAT VALUE}
+      puts "#{pick_a_winner} => Winner"
+      puts "#{pick_2nd_place} => 2nd place"
+      puts "#{pick_3rd_place} => 3rd place"
+      puts "average skill => #{average("skill")}"
+      puts "average pleasure => #{average("pleasure")}"
+      puts "median skill => #{median("skill")}"
+      puts "median pleasure => #{median("pleasure")}"
+      puts "highest skill => #{highest("skill")}"
+      puts "highest pleasure => #{highest("pleasure")}"
+      puts "lowest skill => #{highest("skill")}"
+      puts "lowest pleasure => #{highest("pleasure")}"
+
     end
 
     def pick_a_winner
@@ -207,42 +219,11 @@ interns_array.append Intern.new("Harald", 20, 50, 10, 15, 5)
 interns_array.append Intern.new("Helga", 30, 50, 5, 10, 5)
 
 internship = Internship.new interns_array
-
-puts internship.completed?
-
 internship.start
 
-puts internship.completed?
-
-puts internship.average "skill"
-puts internship.average "luck"
-puts internship.average "power_of_will"
-puts internship.average "pleasure"
-puts internship.average "pain"
-print "\n"
-puts internship.highest "luck"
-puts internship.highest "skill"
-puts internship.highest "power_of_will"
-puts internship.highest "pleasure"
-puts internship.highest "pain"
-print "\n"
-puts internship.lowest "luck"
-puts internship.lowest "skill"
-puts internship.lowest "power_of_will"
-puts internship.lowest "pleasure"
-puts internship.lowest "pain"
-print "\n"
-puts internship.median "luck"
-puts internship.median "skill"
-puts internship.median "power_of_will"
-puts internship.median "pleasure"
-puts internship.median "pain"
-
-print "\n"
-puts internship.pick_a_winner
-puts internship.pick_2nd_place
-puts internship.pick_3rd_place
-
+if internship.completed?
+  internship.stats
+end
 
 # TODO:
 # 1. In the main context here, initialize "interns" array with 5 objects with the following features:
