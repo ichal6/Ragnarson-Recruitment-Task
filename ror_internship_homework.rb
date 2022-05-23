@@ -129,6 +129,14 @@ module Ragnarson
     def lowest(attribute_name)
       # TODO: 
       # Implement a method that returns the lowest value of the given attribute among all of the participants
+      lowest_value = @interns[0].instance_variable_get :"@#{attribute_name}"
+      @interns.each do |intern|
+        actual_value = intern.instance_variable_get :"@#{attribute_name}"
+        if lowest_value > actual_value
+          lowest_value = actual_value
+        end
+      end
+      lowest_value
     end
 
     def median(attribute_name)
@@ -167,6 +175,12 @@ puts internship.highest "skill"
 puts internship.highest "power_of_will"
 puts internship.highest "pleasure"
 puts internship.highest "pain"
+print "\n"
+puts internship.lowest "luck"
+puts internship.lowest "skill"
+puts internship.lowest "power_of_will"
+puts internship.lowest "pleasure"
+puts internship.lowest "pain"
 
 
 # TODO:
