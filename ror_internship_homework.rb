@@ -107,14 +107,9 @@ module Ragnarson
       # TODO: 
       # Implement a method that returns the average of the given attribute among all of the participants
       average = 0
-      case attribute_name
-      when "skill"
         @interns.each do |intern|
-          average += intern.instance_variable_get :@skill
+          average += intern.instance_variable_get :"@#{attribute_name}"
         end
-      else
-        raise ArgumentError.new("Incorrect attribute name = #{attribute_name}")
-      end
       average/@interns.size
     end
 
@@ -155,6 +150,9 @@ puts internship.completed?
 
 puts internship.average "skill"
 puts internship.average "luck"
+puts internship.average "power_of_will"
+puts internship.average "pleasure"
+puts internship.average "pain"
 
 
 # TODO:
