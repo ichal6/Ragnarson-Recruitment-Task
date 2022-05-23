@@ -49,7 +49,7 @@ module Ragnarson
       # - sets the progress of this internship object to 100
       @interns.each do |intern|
         intern.work!
-        intern.to_s
+        puts intern
       end
       @progress = 100
     end
