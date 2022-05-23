@@ -5,6 +5,7 @@ module Ragnarson
     # - "Ready to work."
     # - "Work, work."
     # - "Work complete!"
+    QUOTES = "Ready to work.", "Work, work.", "Work complete!"
 
     def initialize(name, luck, skill, power_of_will, pleasure, pain)
       @name = name
@@ -18,6 +19,7 @@ module Ragnarson
     def work!
       # TODO: 
       # Implement a method that randomly selects a single quote from the QUOTES array and prints it in a new line
+      puts QUOTES[rand(0..2)]
     end
 
     def to_s
@@ -115,6 +117,16 @@ module Ragnarson
     end
   end
 end
+
+include Ragnarson
+
+a = Intern.new("Astrid", 10, 20, 15, 5, 50)
+
+a.work!
+a.work!
+a.work!
+a.work!
+a.work!
 
 # TODO:
 # 1. In the main context here, initialize "interns" array with 5 objects with the following features:
