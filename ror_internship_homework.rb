@@ -106,6 +106,9 @@ module Ragnarson
       # - pleasure has a weight of 3
       # - pain has a weight of -2
       # - the value used for comparison is the weighted sum of the intern's stats.
+      participant_result = get_participants_with_points
+      result_array = participant_result.sort_by { |k, v| v }.reverse!.to_a
+      result_array[2][0]
     end
 
     def average(attribute_name)
@@ -238,6 +241,7 @@ puts internship.median "pain"
 print "\n"
 puts internship.pick_a_winner
 puts internship.pick_2nd_place
+puts internship.pick_3rd_place
 
 
 # TODO:
