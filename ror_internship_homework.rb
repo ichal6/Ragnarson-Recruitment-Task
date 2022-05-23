@@ -57,6 +57,7 @@ module Ragnarson
     def completed?
       # TODO: 
       # Implement a method that returns true if progress of the internship reached 100, otherwise returns false
+      @progress == 100 ? true : false
     end
 
     def stats
@@ -136,7 +137,11 @@ interns_array.append Intern.new("Helga", 30, 50, 5, 10, 5)
 
 internship = Internship.new interns_array
 
+puts internship.completed?
+
 internship.start
+
+puts internship.completed?
 
 # TODO:
 # 1. In the main context here, initialize "interns" array with 5 objects with the following features:
