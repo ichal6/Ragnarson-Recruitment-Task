@@ -31,6 +31,7 @@ module Ragnarson
       #   - POWER_OF_WILL: {POWER_OF_WILL_VALUE} 
       #   - PLEASURE: {PLEASURE_VALUE}
       #   - PAIN: {PAIN_VALUE}
+      "%s\n\t- LUCK: %d\n\t- SKILL: %d\n\t- POWER_OF_WILL: %d\n\t- PLEASURE: %d\n\t- PAIN: %d\n" % [@name, @luck, @skill, @power_of_will, @pleasure, @pain]
     end
   end
 
@@ -127,6 +128,8 @@ a.work!
 a.work!
 a.work!
 a.work!
+
+puts a.to_s
 
 # TODO:
 # 1. In the main context here, initialize "interns" array with 5 objects with the following features:
