@@ -79,6 +79,17 @@ module Ragnarson
       # - pleasure has a weight of 3
       # - pain has a weight of -2
       # - the value used for comparison is the weighted sum of the intern's stats.
+      participant_result = Hash.new
+      @interns.each do |intern|
+        calculate_value = calculate_stat(intern,"luck")
+        calculate_value += calculate_stat(intern, "skill")
+        calculate_value += calculate_stat(intern, "power_of_will")
+        calculate_value += calculate_stat(intern, "pleasure")
+        calculate_value += calculate_stat(intern, "pain")
+        name = intern.instance_variable_get :@name
+        participant_result.store(name, calculate_value)
+      end
+      participant_result.max_by{|k, v| v}
     end
 
     def pick_2nd_place
@@ -153,6 +164,25 @@ module Ragnarson
         return (values[values.size / 2] + values[values.size / 2 - 1]) / 2.0
       end
     end
+
+    private
+    def calculate_stat(intern, attribute_name)
+      actual_value = intern.instance_variable_get :"@#{attribute_name}"
+      case attribute_name
+      when "luck"
+        actual_value*2
+      when "skill"
+        actual_value*5
+      when "power_of_will"
+        actual_value*2
+      when "pleasure"
+        actual_value*3
+      when "pain"
+        actual_value*-2
+      else
+        raise ArgumentError.new("Not found attribute: #{attribute_name}")
+      end
+    end
   end
 end
 
@@ -197,6 +227,9 @@ puts internship.median "skill"
 puts internship.median "power_of_will"
 puts internship.median "pleasure"
 puts internship.median "pain"
+
+print "\n"
+puts internship.pick_a_winner
 
 
 # TODO:
