@@ -142,6 +142,16 @@ module Ragnarson
     def median(attribute_name)
       # TODO: 
       # Implement a method that returns the median value of the given attribute among all of the participants
+      values = Array.new
+      @interns.each do |intern|
+        values.append intern.instance_variable_get :"@#{attribute_name}"
+      end
+      values = values.sort
+      if values.size % 2 != 0
+        return values[values.size/2]
+      else
+        return (values[values.size / 2] + values[values.size / 2 - 1]) / 2.0
+      end
     end
   end
 end
@@ -181,6 +191,12 @@ puts internship.lowest "skill"
 puts internship.lowest "power_of_will"
 puts internship.lowest "pleasure"
 puts internship.lowest "pain"
+print "\n"
+puts internship.median "luck"
+puts internship.median "skill"
+puts internship.median "power_of_will"
+puts internship.median "pleasure"
+puts internship.median "pain"
 
 
 # TODO:
