@@ -116,6 +116,14 @@ module Ragnarson
     def highest(attribute_name)
       # TODO: 
       # Implement a method that returns the highest value of the given attribute among all of the participants
+      highest_value = 0
+      @interns.each do |intern|
+        actual_value = intern.instance_variable_get :"@#{attribute_name}"
+        if highest_value < actual_value
+          highest_value = actual_value
+        end
+      end
+      highest_value
     end
 
     def lowest(attribute_name)
@@ -153,6 +161,12 @@ puts internship.average "luck"
 puts internship.average "power_of_will"
 puts internship.average "pleasure"
 puts internship.average "pain"
+print "\n"
+puts internship.highest "luck"
+puts internship.highest "skill"
+puts internship.highest "power_of_will"
+puts internship.highest "pleasure"
+puts internship.highest "pain"
 
 
 # TODO:
