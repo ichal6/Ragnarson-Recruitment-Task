@@ -91,7 +91,10 @@ module Ragnarson
       # - power_of_will has a weight of 2
       # - pleasure has a weight of 3
       # - pain has a weight of -2
-      # - the value used for comparison is the weighted sum of the intern's stats. 
+      # - the value used for comparison is the weighted sum of the intern's stats.
+      participant_result = get_participants_with_points
+      result_array = participant_result.sort_by { |k, v| v }.reverse!.to_a
+      result_array[1][0]
     end
 
     def pick_3rd_place
@@ -234,6 +237,7 @@ puts internship.median "pain"
 
 print "\n"
 puts internship.pick_a_winner
+puts internship.pick_2nd_place
 
 
 # TODO:
