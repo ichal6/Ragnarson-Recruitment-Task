@@ -126,15 +126,17 @@ end
 
 include Ragnarson
 
-a = Intern.new("Astrid", 10, 20, 15, 5, 50)
+interns_array = []
 
-a.work!
-a.work!
-a.work!
-a.work!
-a.work!
+interns_array.append Intern.new("Astrid", 10, 20, 15, 5, 50)
+interns_array.append Intern.new("Bjørn", 5, 15, 10, 10, 50)
+interns_array.append Intern.new("Erik", 50, 20, 15, 5, 10)
+interns_array.append Intern.new("Harald", 20, 50, 10, 15, 5)
+interns_array.append Intern.new("Helga", 30, 50, 5, 10, 5)
 
-puts a.to_s
+internship = Internship.new interns_array
+
+internship.start
 
 # TODO:
 # 1. In the main context here, initialize "interns" array with 5 objects with the following features:
