@@ -106,6 +106,16 @@ module Ragnarson
     def average(attribute_name)
       # TODO: 
       # Implement a method that returns the average of the given attribute among all of the participants
+      average = 0
+      case attribute_name
+      when "skill"
+        @interns.each do |intern|
+          average += intern.instance_variable_get :@skill
+        end
+      else
+        "Incorrect attribute name"
+      end
+      average/@interns.size
     end
 
     def highest(attribute_name)
@@ -142,6 +152,8 @@ puts internship.completed?
 internship.start
 
 puts internship.completed?
+
+puts internship.average "skill"
 
 # TODO:
 # 1. In the main context here, initialize "interns" array with 5 objects with the following features:
