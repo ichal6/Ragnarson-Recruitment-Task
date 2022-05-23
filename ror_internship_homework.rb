@@ -113,7 +113,7 @@ module Ragnarson
           average += intern.instance_variable_get :@skill
         end
       else
-        "Incorrect attribute name"
+        raise ArgumentError.new("Incorrect attribute name = #{attribute_name}")
       end
       average/@interns.size
     end
@@ -154,6 +154,8 @@ internship.start
 puts internship.completed?
 
 puts internship.average "skill"
+puts internship.average "luck"
+
 
 # TODO:
 # 1. In the main context here, initialize "interns" array with 5 objects with the following features:
