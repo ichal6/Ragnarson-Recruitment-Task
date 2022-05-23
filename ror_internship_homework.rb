@@ -47,6 +47,11 @@ module Ragnarson
       # Implement a method that:
       # - iterates over interns and calls `to_s` and `work!` methods for each of them
       # - sets the progress of this internship object to 100
+      @interns.each do |intern|
+        intern.work!
+        intern.to_s
+      end
+      @progress = 100
     end
 
     def completed?
