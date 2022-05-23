@@ -16,7 +16,8 @@ module Ragnarson
     end
 
     def to_s
-      "%s\n\t- LUCK: %d\n\t- SKILL: %d\n\t- POWER_OF_WILL: %d\n\t- PLEASURE: %d\n\t- PAIN: %d\n" % [@name, @luck, @skill, @power_of_will, @pleasure, @pain]
+      sprintf("%s\n\t- LUCK: %d\n\t- SKILL: %d\n\t- POWER_OF_WILL: %d\n\t- PLEASURE: %d\n\t- PAIN: %d\n",
+              @name, @luck, @skill, @power_of_will, @pleasure, @pain)
     end
   end
 
