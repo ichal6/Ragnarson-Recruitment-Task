@@ -41,9 +41,9 @@ module Ragnarson
     end
 
     def stats
-      puts "#{pick_a_winner} => Winner"
-      puts "#{pick_2nd_place} => 2nd place"
-      puts "#{pick_3rd_place} => 3rd place"
+      puts "winner's name => #{pick_a_winner}"
+      puts "2nd place name => #{pick_2nd_place}"
+      puts "3rd place name => #{pick_3rd_place}"
       puts "average skill => #{average("skill")}"
       puts "average pleasure => #{average("pleasure")}"
       puts "median skill => #{median("skill")}"
